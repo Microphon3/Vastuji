@@ -88,3 +88,34 @@ export interface PhysicsData {
 // Database helper types
 export type AnalysisInsert = Omit<Analysis, 'id' | 'createdAt' | 'updatedAt'>;
 export type AnalysisUpdate = Partial<Omit<Analysis, 'id' | 'createdAt'>>;
+
+export interface Booking {
+  id: string;
+  analysisId: string;
+  userId?: string;
+  createdAt: string;
+  updatedAt: string;
+
+  // Contact info
+  name: string;
+  email: string;
+  phone: string;
+  propertyAddress?: string;
+
+  // Scheduling
+  scheduledTime: string;
+  timezone: string;
+
+  // Payment
+  paymentStatus: 'pending' | 'completed' | 'failed';
+  paymentId?: string;
+  amount: number; // in paise
+
+  // Consultation
+  consultantId?: string;
+  consultationStatus: 'scheduled' | 'completed' | 'cancelled';
+  notes?: string;
+}
+
+export type BookingInsert = Omit<Booking, 'id' | 'createdAt' | 'updatedAt'>;
+export type BookingUpdate = Partial<Omit<Booking, 'id' | 'createdAt'>>;
