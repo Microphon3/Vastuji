@@ -1,13 +1,13 @@
-<script>
+<script lang="ts">
   import BlueprintGrid from '$lib/components/shared/BlueprintGrid.svelte';
 
   const sampleZones = [
-    { id: 1, status: 'optimal', score: 85 },
-    { id: 5, status: 'attention', score: 60 },
-    { id: 9, status: 'critical', score: 35 },
+    { id: 1, status: 'optimal' as const, score: 85 },
+    { id: 5, status: 'attention' as const, score: 60 },
+    { id: 9, status: 'critical' as const, score: 35 },
   ];
 
-  function handleZoneClick(zoneId) {
+  function handleZoneClick(zoneId: number) {
     console.log('Clicked zone:', zoneId);
   }
 </script>

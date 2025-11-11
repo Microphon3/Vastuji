@@ -11,9 +11,9 @@ describe('BlueprintGrid Component', () => {
 
   it('should apply color based on zone status', () => {
     const zones = [
-      { id: 1, status: 'optimal' },
-      { id: 2, status: 'attention' },
-      { id: 3, status: 'critical' }
+      { id: 1, status: 'optimal' as const },
+      { id: 2, status: 'attention' as const },
+      { id: 3, status: 'critical' as const }
     ];
 
     const { container } = render(BlueprintGrid, { zones });
