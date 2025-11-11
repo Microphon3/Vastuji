@@ -3,13 +3,33 @@
 
 /* Authentic Vastu Color System */
 :root {
+  /* Blueprint Design System - Technical/Analysis Colors */
+  --navy-base: #0f1528;
+  --navy-light: #1e2a4a;
+  --technical-blue: #2563eb;
+  --grid-lines: #374151;
+
+  /* Heat Map Colors */
+  --optimal-green: #10b981;
+  --optimal-green-light: #34d399;
+  --attention-amber: #f59e0b;
+  --attention-amber-light: #fbbf24;
+  --critical-red: #ef4444;
+  --critical-red-light: #f87171;
+  --neutral-gray: #6b7280;
+
+  /* Accent Colors */
+  --gold-premium: #d4af37;
+  --white: #ffffff;
+  --black: #000000;
+
   /* Five Elements (Panch Mahabhuta) */
   --vastu-earth: #8B4A2B;      /* Prithvi - Grounding, Stability */
   --vastu-water: #2C5F7A;      /* Jal - Flow, Prosperity */
   --vastu-fire: #D4631F;       /* Agni - Energy, Transformation */
   --vastu-air: #6B8E4D;        /* Vayu - Movement, Growth */
   --vastu-space: #4A4A7A;      /* Akasha - Consciousness, Potential */
-  
+
   /* Sacred Colors */
   --vastu-saffron: #FF9420;    /* Bhagwa - Purity, Sacrifice */
   --vastu-vermillion: #E34234; /* Sindoor - Prosperity, Protection */
@@ -17,7 +37,7 @@
   --vastu-sandalwood: #C19A6B; /* Chandan - Peace, Spirituality */
   --vastu-ivory: #FDF8F0;      /* Shweta - Clarity, Truth */
   --vastu-charcoal: #2A2A2A;   /* Krishn - Depth, Mystery */
-  
+
   /* Directional Colors */
   --vastu-east: #FFB347;       /* Sunrise, New Beginnings */
   --vastu-south: #DC143C;      /* Fire, Energy */
