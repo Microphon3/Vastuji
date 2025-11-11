@@ -2,392 +2,442 @@
 
 /* Authentic Vastu Color System */
 :root {
-  /* Blueprint Design System - Technical/Analysis Colors */
-  --navy-base: #0f1528;
-  --navy-light: #1e2a4a;
-  --technical-blue: #2563eb;
-  --grid-lines: #374151;
+	/* Blueprint Design System - Technical/Analysis Colors */
+	--navy-base: #0f1528;
+	--navy-light: #1e2a4a;
+	--technical-blue: #2563eb;
+	--grid-lines: #374151;
 
-  /* Heat Map Colors */
-  --optimal-green: #10b981;
-  --optimal-green-light: #34d399;
-  --attention-amber: #f59e0b;
-  --attention-amber-light: #fbbf24;
-  --critical-red: #ef4444;
-  --critical-red-light: #f87171;
-  --neutral-gray: #6b7280;
+	/* Heat Map Colors */
+	--optimal-green: #10b981;
+	--optimal-green-light: #34d399;
+	--attention-amber: #f59e0b;
+	--attention-amber-light: #fbbf24;
+	--critical-red: #ef4444;
+	--critical-red-light: #f87171;
+	--neutral-gray: #6b7280;
 
-  /* Accent Colors */
-  --gold-premium: #d4af37;
-  --white: #ffffff;
-  --black: #000000;
+	/* Accent Colors */
+	--gold-premium: #d4af37;
+	--white: #ffffff;
+	--black: #000000;
 
-  /* Five Elements (Panch Mahabhuta) */
-  --vastu-earth: #8B4A2B;      /* Prithvi - Grounding, Stability */
-  --vastu-water: #2C5F7A;      /* Jal - Flow, Prosperity */
-  --vastu-fire: #D4631F;       /* Agni - Energy, Transformation */
-  --vastu-air: #6B8E4D;        /* Vayu - Movement, Growth */
-  --vastu-space: #4A4A7A;      /* Akasha - Consciousness, Potential */
+	/* Five Elements (Panch Mahabhuta) */
+	--vastu-earth: #8b4a2b; /* Prithvi - Grounding, Stability */
+	--vastu-water: #2c5f7a; /* Jal - Flow, Prosperity */
+	--vastu-fire: #d4631f; /* Agni - Energy, Transformation */
+	--vastu-air: #6b8e4d; /* Vayu - Movement, Growth */
+	--vastu-space: #4a4a7a; /* Akasha - Consciousness, Potential */
 
-  /* Sacred Colors */
-  --vastu-saffron: #FF9420;    /* Bhagwa - Purity, Sacrifice */
-  --vastu-vermillion: #E34234; /* Sindoor - Prosperity, Protection */
-  --vastu-turmeric: #E9C46A;   /* Haldi - Auspiciousness */
-  --vastu-sandalwood: #C19A6B; /* Chandan - Peace, Spirituality */
-  --vastu-ivory: #FDF8F0;      /* Shweta - Clarity, Truth */
-  --vastu-charcoal: #2A2A2A;   /* Krishn - Depth, Mystery */
+	/* Sacred Colors */
+	--vastu-saffron: #ff9420; /* Bhagwa - Purity, Sacrifice */
+	--vastu-vermillion: #e34234; /* Sindoor - Prosperity, Protection */
+	--vastu-turmeric: #e9c46a; /* Haldi - Auspiciousness */
+	--vastu-sandalwood: #c19a6b; /* Chandan - Peace, Spirituality */
+	--vastu-ivory: #fdf8f0; /* Shweta - Clarity, Truth */
+	--vastu-charcoal: #2a2a2a; /* Krishn - Depth, Mystery */
 
-  /* Directional Colors */
-  --vastu-east: #FFB347;       /* Sunrise, New Beginnings */
-  --vastu-south: #DC143C;      /* Fire, Energy */
-  --vastu-west: #4682B4;       /* Water, Reflection */
-  --vastu-north: #228B22;      /* Growth, Prosperity */
-  --vastu-northeast: #DAA520;  /* Ishaan - Divine Knowledge */
-  --vastu-southeast: #FF6347;  /* Agneya - Transformation */
-  --vastu-southwest: #8B4513;  /* Nairutya - Stability */
-  --vastu-northwest: #87CEEB;  /* Vayavya - Movement */
+	/* Directional Colors */
+	--vastu-east: #ffb347; /* Sunrise, New Beginnings */
+	--vastu-south: #dc143c; /* Fire, Energy */
+	--vastu-west: #4682b4; /* Water, Reflection */
+	--vastu-north: #228b22; /* Growth, Prosperity */
+	--vastu-northeast: #daa520; /* Ishaan - Divine Knowledge */
+	--vastu-southeast: #ff6347; /* Agneya - Transformation */
+	--vastu-southwest: #8b4513; /* Nairutya - Stability */
+	--vastu-northwest: #87ceeb; /* Vayavya - Movement */
 
-  /* Typography Scale */
-  --text-5xl: 3rem;      /* 48px - Hero headings */
-  --text-3xl: 2rem;      /* 32px - Section headings */
-  --text-xl: 1.25rem;    /* 20px - Subheadings */
-  --text-base: 1rem;     /* 16px - Body text */
-  --text-sm: 0.875rem;   /* 14px - Small text */
-  --text-xs: 0.75rem;    /* 12px - Tiny text */
+	/* Typography Scale */
+	--text-5xl: 3rem; /* 48px - Hero headings */
+	--text-3xl: 2rem; /* 32px - Section headings */
+	--text-xl: 1.25rem; /* 20px - Subheadings */
+	--text-base: 1rem; /* 16px - Body text */
+	--text-sm: 0.875rem; /* 14px - Small text */
+	--text-xs: 0.75rem; /* 12px - Tiny text */
 
-  /* Font Families */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+	/* Font Families */
+	--font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+	--font-mono: 'JetBrains Mono', 'Courier New', monospace;
 }
 
 /* Enhanced Typography System with Proper Fallbacks */
 body {
-  font-family: var(--font-sans);
-  font-size: var(--text-base);
-  font-weight: 400;
-  line-height: 1.5;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2A2A2A;
-  background: #FDF8F0;
+	font-family: var(--font-sans);
+	font-size: var(--text-base);
+	font-weight: 400;
+	line-height: 1.5;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: #2a2a2a;
+	background: #fdf8f0;
 }
 
 .font-display {
-  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
+	font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+	font-weight: 600;
+	line-height: 1.2;
+	letter-spacing: -0.025em;
 }
 
 .font-body-elegant {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 400;
-  line-height: 1.75;
+	font-family:
+		'Inter',
+		-apple-system,
+		BlinkMacSystemFont,
+		sans-serif;
+	font-weight: 400;
+	line-height: 1.75;
 }
 
 .font-body-modern {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 400;
+	font-family:
+		'Inter',
+		-apple-system,
+		BlinkMacSystemFont,
+		sans-serif;
+	font-weight: 400;
 }
 
 .font-devanagari {
-  font-family: 'Noto Sans Devanagari', 'Mangal', 'Kokila', 'Utsaah', sans-serif;
-  font-weight: 500;
+	font-family: 'Noto Sans Devanagari', 'Mangal', 'Kokila', 'Utsaah', sans-serif;
+	font-weight: 500;
 }
 
 /* Sacred Geometry - Vastu Purusha Mandala */
 .vastu-mandala {
-  background-image: 
+	background-image: 
     /* Central Brahma Pada */
-    radial-gradient(circle at 50% 50%, var(--vastu-turmeric) 0%, transparent 8%),
-    /* Eight Directional Points */
-    radial-gradient(circle at 50% 0%, var(--vastu-east) 0%, transparent 4%),
-    radial-gradient(circle at 85% 15%, var(--vastu-southeast) 0%, transparent 4%),
-    radial-gradient(circle at 100% 50%, var(--vastu-south) 0%, transparent 4%),
-    radial-gradient(circle at 85% 85%, var(--vastu-southwest) 0%, transparent 4%),
-    radial-gradient(circle at 50% 100%, var(--vastu-west) 0%, transparent 4%),
-    radial-gradient(circle at 15% 85%, var(--vastu-northwest) 0%, transparent 4%),
-    radial-gradient(circle at 0% 50%, var(--vastu-north) 0%, transparent 4%),
-    radial-gradient(circle at 15% 15%, var(--vastu-northeast) 0%, transparent 4%);
-  background-size: 160px 160px;
-  opacity: 0.03;
+		radial-gradient(circle at 50% 50%, var(--vastu-turmeric) 0%, transparent 8%),
+		/* Eight Directional Points */
+			radial-gradient(circle at 50% 0%, var(--vastu-east) 0%, transparent 4%),
+		radial-gradient(circle at 85% 15%, var(--vastu-southeast) 0%, transparent 4%),
+		radial-gradient(circle at 100% 50%, var(--vastu-south) 0%, transparent 4%),
+		radial-gradient(circle at 85% 85%, var(--vastu-southwest) 0%, transparent 4%),
+		radial-gradient(circle at 50% 100%, var(--vastu-west) 0%, transparent 4%),
+		radial-gradient(circle at 15% 85%, var(--vastu-northwest) 0%, transparent 4%),
+		radial-gradient(circle at 0% 50%, var(--vastu-north) 0%, transparent 4%),
+		radial-gradient(circle at 15% 15%, var(--vastu-northeast) 0%, transparent 4%);
+	background-size: 160px 160px;
+	opacity: 0.03;
 }
 
 /* Subtle Sacred Patterns */
 .sacred-dots {
-  background-image: 
-    radial-gradient(circle at 25% 25%, var(--vastu-saffron) 1px, transparent 1px),
-    radial-gradient(circle at 75% 75%, var(--vastu-vermillion) 1px, transparent 1px);
-  background-size: 60px 60px;
-  background-position: 0 0, 30px 30px;
-  opacity: 0.05;
+	background-image:
+		radial-gradient(circle at 25% 25%, var(--vastu-saffron) 1px, transparent 1px),
+		radial-gradient(circle at 75% 75%, var(--vastu-vermillion) 1px, transparent 1px);
+	background-size: 60px 60px;
+	background-position:
+		0 0,
+		30px 30px;
+	opacity: 0.05;
 }
 
 /* Traditional Border Patterns */
 .vastu-border {
-  position: relative;
+	position: relative;
 }
 
 .vastu-border::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    var(--vastu-saffron) 20%, 
-    var(--vastu-turmeric) 50%, 
-    var(--vastu-saffron) 80%, 
-    transparent 100%);
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 80px;
+	height: 3px;
+	background: linear-gradient(
+		90deg,
+		transparent 0%,
+		var(--vastu-saffron) 20%,
+		var(--vastu-turmeric) 50%,
+		var(--vastu-saffron) 80%,
+		transparent 100%
+	);
 }
 
 /* Yantra-inspired Grid */
 .yantra-grid {
-  background-image: 
-    linear-gradient(var(--vastu-saffron) 1px, transparent 1px),
-    linear-gradient(90deg, var(--vastu-saffron) 1px, transparent 1px);
-  background-size: 40px 40px;
-  opacity: 0.02;
+	background-image:
+		linear-gradient(var(--vastu-saffron) 1px, transparent 1px),
+		linear-gradient(90deg, var(--vastu-saffron) 1px, transparent 1px);
+	background-size: 40px 40px;
+	opacity: 0.02;
 }
 
 /* Om Symbol CSS Art */
 .om-symbol {
-  position: relative;
-  width: 60px;
-  height: 60px;
+	position: relative;
+	width: 60px;
+	height: 60px;
 }
 
 .om-symbol::before {
-  content: 'ॐ';
-  font-size: 36px;
-  color: var(--vastu-saffron);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.1;
+	content: 'ॐ';
+	font-size: 36px;
+	color: var(--vastu-saffron);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0.1;
 }
 
 /* Smooth scrolling */
 html {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 /* Enhanced gradients for premium feel */
 .gradient-premium {
-  background: linear-gradient(135deg, 
-    rgba(255, 153, 51, 0.9) 0%, 
-    rgba(255, 102, 0, 0.9) 50%, 
-    rgba(128, 0, 0, 0.9) 100%);
+	background: linear-gradient(
+		135deg,
+		rgba(255, 153, 51, 0.9) 0%,
+		rgba(255, 102, 0, 0.9) 50%,
+		rgba(128, 0, 0, 0.9) 100%
+	);
 }
 
 /* Animation keyframes */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+	0%,
+	100% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(255, 153, 51, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(255, 153, 51, 0.5); }
+	0%,
+	100% {
+		box-shadow: 0 0 20px rgba(255, 153, 51, 0.3);
+	}
+	50% {
+		box-shadow: 0 0 40px rgba(255, 153, 51, 0.5);
+	}
 }
 
 .float-animation {
-  animation: float 6s ease-in-out infinite;
+	animation: float 6s ease-in-out infinite;
 }
 
 .pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
+	animation: pulse-glow 3s ease-in-out infinite;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+	width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+	background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, var(--vastu-saffron), var(--vastu-deep-saffron));
-  border-radius: 4px;
+	background: linear-gradient(to bottom, var(--vastu-saffron), var(--vastu-deep-saffron));
+	border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, var(--vastu-deep-saffron), var(--vastu-maroon));
+	background: linear-gradient(to bottom, var(--vastu-deep-saffron), var(--vastu-maroon));
 }
 
 /* Selection styling */
 ::selection {
-  background: rgba(255, 153, 51, 0.2);
-  color: var(--vastu-maroon);
+	background: rgba(255, 153, 51, 0.2);
+	color: var(--vastu-maroon);
 }
 
 /* Focus states for accessibility */
 button:focus,
 a:focus {
-  outline: 2px solid var(--vastu-saffron);
-  outline-offset: 2px;
+	outline: 2px solid var(--vastu-saffron);
+	outline-offset: 2px;
 }
 
 /* Premium card hover effects */
 .premium-card {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translateY(0);
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	transform: translateY(0);
 }
 
 .premium-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+	transform: translateY(-8px);
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
 /* Loading animation for future use */
 .spinner {
-  animation: spin 1s linear infinite;
+	animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 /* Scrolling ticker animation */
 @keyframes scroll {
-  0% { transform: translateX(100vw); }
-  100% { transform: translateX(-100%); }
+	0% {
+		transform: translateX(100vw);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
 }
 
 .animate-scroll {
-  animation: scroll 45s linear infinite;
+	animation: scroll 45s linear infinite;
 }
 
 /* Enhanced hover and focus states */
 .hover-lift {
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+	transform: translateY(-4px);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 /* Sacred geometric patterns for backgrounds */
 .mandala-bg {
-  background-image: 
-    radial-gradient(circle at center, #FF9420 1px, transparent 1px),
-    radial-gradient(circle at 33% 33%, #E9C46A 0.5px, transparent 0.5px),
-    radial-gradient(circle at 66% 66%, #E34234 0.5px, transparent 0.5px);
-  background-size: 80px 80px, 40px 40px, 60px 60px;
-  background-position: 0 0, 20px 20px, 40px 40px;
-  opacity: 0.03;
+	background-image:
+		radial-gradient(circle at center, #ff9420 1px, transparent 1px),
+		radial-gradient(circle at 33% 33%, #e9c46a 0.5px, transparent 0.5px),
+		radial-gradient(circle at 66% 66%, #e34234 0.5px, transparent 0.5px);
+	background-size:
+		80px 80px,
+		40px 40px,
+		60px 60px;
+	background-position:
+		0 0,
+		20px 20px,
+		40px 40px;
+	opacity: 0.03;
 }
 
 /* Ensure container responsiveness */
 .container {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 @media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
+	.container {
+		max-width: 640px;
+	}
 }
 
 @media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
+	.container {
+		max-width: 768px;
+	}
 }
 
 @media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
+	.container {
+		max-width: 1024px;
+	}
 }
 
 @media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
+	.container {
+		max-width: 1280px;
+	}
 }
 
 @media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
-  }
+	.container {
+		max-width: 1536px;
+	}
 }
 
 /* Enhanced mobile responsiveness */
 @media (max-width: 768px) {
-  .font-display {
-    line-height: 1.3;
-  }
-  
-  .animate-scroll {
-    animation-duration: 30s; /* Faster on mobile */
-  }
-  
-  /* Better mobile spacing */
-  section {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
+	.font-display {
+		line-height: 1.3;
+	}
+
+	.animate-scroll {
+		animation-duration: 30s; /* Faster on mobile */
+	}
+
+	/* Better mobile spacing */
+	section {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
 }
 
 /* Unified flow animations */
 @keyframes gentle-float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33% { transform: translateY(-5px) rotate(1deg); }
-  66% { transform: translateY(-3px) rotate(-1deg); }
+	0%,
+	100% {
+		transform: translateY(0px) rotate(0deg);
+	}
+	33% {
+		transform: translateY(-5px) rotate(1deg);
+	}
+	66% {
+		transform: translateY(-3px) rotate(-1deg);
+	}
 }
 
 .sacred-element {
-  animation: gentle-float 12s ease-in-out infinite;
+	animation: gentle-float 12s ease-in-out infinite;
 }
 
 .sacred-element:nth-child(2) {
-  animation-delay: -4s;
+	animation-delay: -4s;
 }
 
 .sacred-element:nth-child(3) {
-  animation-delay: -8s;
+	animation-delay: -8s;
 }
 
 /* Seamless section transitions */
 .section-transition {
-  position: relative;
+	position: relative;
 }
 
 .section-transition::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 148, 32, 0.1), transparent);
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background: linear-gradient(90deg, transparent, rgba(255, 148, 32, 0.1), transparent);
 }
 
 /* Enhanced sacred patterns with breathing effect */
 .sacred-dots {
-  animation: breathe 8s ease-in-out infinite;
+	animation: breathe 8s ease-in-out infinite;
 }
 
 @keyframes breathe {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.5; }
+	0%,
+	100% {
+		opacity: 0.3;
+	}
+	50% {
+		opacity: 0.5;
+	}
 }
 
 /* Clean Compass Styles */
 .compass-needle-transition {
-  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+	transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
 }

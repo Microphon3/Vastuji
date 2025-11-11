@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	
+
 	const officeZones = [
 		{
 			zone: 'North-East (Ishaan)',
@@ -80,10 +80,10 @@
 		{
 			zone: 'South-West (Nirriti)',
 			element: 'Rahu',
-			purpose: 'Owner\'s Cabin, Heavy Storage, Strong Room',
+			purpose: "Owner's Cabin, Heavy Storage, Strong Room",
 			benefits: 'Stability, authority, security, grounding',
 			guidelines: [
-				'Best for owner\'s main cabin',
+				"Best for owner's main cabin",
 				'Heavy furniture and storage',
 				'Strong room and valuables',
 				'Sit facing North or East'
@@ -292,10 +292,14 @@
 
 	function getImportanceColor(importance: string) {
 		switch (importance.toLowerCase()) {
-			case 'critical': return 'bg-red-100 text-red-800';
-			case 'high': return 'bg-orange-100 text-orange-800';
-			case 'medium': return 'bg-yellow-100 text-yellow-800';
-			default: return 'bg-gray-100 text-gray-800';
+			case 'critical':
+				return 'bg-red-100 text-red-800';
+			case 'high':
+				return 'bg-orange-100 text-orange-800';
+			case 'medium':
+				return 'bg-yellow-100 text-yellow-800';
+			default:
+				return 'bg-gray-100 text-gray-800';
 		}
 	}
 </script>
@@ -307,24 +311,28 @@
 <!-- Office Vastu Comprehensive Guide -->
 <div class="min-h-screen bg-gray-50">
 	<!-- Header -->
-	<header class="bg-white border-b border-gray-200">
-		<div class="max-w-7xl mx-auto px-8 py-4">
+	<header class="border-b border-gray-200 bg-white">
+		<div class="mx-auto max-w-7xl px-8 py-4">
 			<div class="flex items-center justify-between">
 				<div class="flex items-center space-x-3">
-					<div class="w-10 h-10 bg-gradient-to-br from-amber-600 to-orange-700 rounded flex items-center justify-center">
-						<span class="text-white font-bold text-sm">V</span>
+					<div
+						class="flex h-10 w-10 items-center justify-center rounded bg-gradient-to-br from-amber-600 to-orange-700"
+					>
+						<span class="text-sm font-bold text-white">V</span>
 					</div>
 					<div>
-						<div class="font-bold text-gray-900 text-lg tracking-tight">VASTUJI</div>
-						<div class="text-xs text-gray-500 uppercase tracking-wide">The Sacred Science of Space</div>
+						<div class="text-lg font-bold tracking-tight text-gray-900">VASTUJI</div>
+						<div class="text-xs tracking-wide text-gray-500 uppercase">
+							The Sacred Science of Space
+						</div>
 					</div>
 				</div>
-				
-				<nav class="hidden md:flex items-center space-x-8 text-sm text-gray-600">
+
+				<nav class="hidden items-center space-x-8 text-sm text-gray-600 md:flex">
 					<a href="/" class="hover:text-gray-900">Home</a>
 					<a href="/knowledge" class="hover:text-gray-900">Knowledge</a>
 					<a href="/home-vastu" class="hover:text-gray-900">Home Vastu</a>
-					<span class="text-amber-600 font-medium">Office Vastu</span>
+					<span class="font-medium text-amber-600">Office Vastu</span>
 					<a href="/consultation" class="hover:text-gray-900">Consultation</a>
 				</nav>
 			</div>
@@ -333,41 +341,41 @@
 
 	<!-- Hero Section -->
 	<section class="bg-gradient-to-br from-blue-50 to-indigo-50 py-16">
-		<div class="max-w-7xl mx-auto px-8">
-			<div class="text-center mb-12">
-				<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+		<div class="mx-auto max-w-7xl px-8">
+			<div class="mb-12 text-center">
+				<h1 class="mb-6 text-4xl font-bold text-gray-900 md:text-5xl">
 					Office Vastu for Business Success
 				</h1>
-				<p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-					Optimize your workplace with ancient wisdom for modern business. 
-					Create an environment that promotes productivity, prosperity, and positive energy.
+				<p class="mx-auto mb-8 max-w-3xl text-xl text-gray-600">
+					Optimize your workplace with ancient wisdom for modern business. Create an environment
+					that promotes productivity, prosperity, and positive energy.
 				</p>
-				
-				<div class="grid md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-8">
-					<div class="bg-white rounded-lg p-4 shadow-sm">
+
+				<div class="mx-auto mb-8 grid max-w-2xl gap-6 md:grid-cols-3">
+					<div class="rounded-lg bg-white p-4 shadow-sm">
 						<div class="text-2xl font-bold text-blue-600">85%</div>
 						<div class="text-sm text-gray-600">Productivity Increase</div>
 					</div>
-					<div class="bg-white rounded-lg p-4 shadow-sm">
+					<div class="rounded-lg bg-white p-4 shadow-sm">
 						<div class="text-2xl font-bold text-green-600">60%</div>
 						<div class="text-sm text-gray-600">Revenue Growth</div>
 					</div>
-					<div class="bg-white rounded-lg p-4 shadow-sm">
+					<div class="rounded-lg bg-white p-4 shadow-sm">
 						<div class="text-2xl font-bold text-purple-600">90%</div>
 						<div class="text-sm text-gray-600">Employee Satisfaction</div>
 					</div>
 				</div>
-				
-				<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-					<button 
+
+				<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+					<button
 						on:click={() => goto('/scan')}
-						class="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+						class="rounded-xl bg-blue-600 px-8 py-4 font-semibold text-white transition-colors hover:bg-blue-700"
 					>
 						Analyze My Office
 					</button>
-					<button 
+					<button
 						on:click={() => goto('/consultation')}
-						class="border border-gray-300 bg-white text-gray-700 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
+						class="rounded-xl border border-gray-300 bg-white px-8 py-4 font-semibold text-gray-700 transition-colors hover:bg-gray-50"
 					>
 						Expert Consultation
 					</button>
@@ -378,69 +386,76 @@
 
 	<!-- Office Zones Section -->
 	<section class="py-16">
-		<div class="max-w-7xl mx-auto px-8">
-			<div class="text-center mb-12">
-				<h2 class="text-3xl font-bold text-gray-900 mb-4">8-Direction Office Vastu Layout</h2>
-				<p class="text-gray-600">Optimize each zone of your office for maximum business potential</p>
+		<div class="mx-auto max-w-7xl px-8">
+			<div class="mb-12 text-center">
+				<h2 class="mb-4 text-3xl font-bold text-gray-900">8-Direction Office Vastu Layout</h2>
+				<p class="text-gray-600">
+					Optimize each zone of your office for maximum business potential
+				</p>
 			</div>
-			
+
 			<div class="space-y-6">
 				{#each officeZones as zone}
-					<div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
-						<div class="flex items-start justify-between mb-6">
+					<div class="rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
+						<div class="mb-6 flex items-start justify-between">
 							<div>
-								<h3 class="text-2xl font-bold text-gray-900 mb-2">{zone.zone}</h3>
-								<div class="flex items-center space-x-4 mb-2">
-									<span class="text-blue-700 font-medium">Element: {zone.element}</span>
-									<span class="text-amber-700 font-medium">Purpose: {zone.purpose}</span>
+								<h3 class="mb-2 text-2xl font-bold text-gray-900">{zone.zone}</h3>
+								<div class="mb-2 flex items-center space-x-4">
+									<span class="font-medium text-blue-700">Element: {zone.element}</span>
+									<span class="font-medium text-amber-700">Purpose: {zone.purpose}</span>
 								</div>
-								<p class="text-green-700 text-sm">{zone.benefits}</p>
+								<p class="text-sm text-green-700">{zone.benefits}</p>
 							</div>
 							<div class="text-right">
 								<div class="text-3xl font-bold {getScoreColor(zone.score)}">{zone.score}/100</div>
 								<div class="text-sm text-gray-500">Vastu Score</div>
 							</div>
 						</div>
-						
-						<div class="grid md:grid-cols-3 gap-8">
+
+						<div class="grid gap-8 md:grid-cols-3">
 							<!-- Guidelines -->
 							<div>
-								<h4 class="font-semibold text-gray-900 mb-3">✅ Guidelines</h4>
+								<h4 class="mb-3 font-semibold text-gray-900">✅ Guidelines</h4>
 								<ul class="space-y-2">
 									{#each zone.guidelines as guideline}
 										<li class="flex items-start">
-											<span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
-											<span class="text-gray-700 text-sm">{guideline}</span>
+											<span class="mt-2 mr-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"
+											></span>
+											<span class="text-sm text-gray-700">{guideline}</span>
 										</li>
 									{/each}
 								</ul>
 							</div>
-							
+
 							<!-- Avoid -->
 							<div>
-								<h4 class="font-semibold text-gray-900 mb-3">❌ Avoid</h4>
+								<h4 class="mb-3 font-semibold text-gray-900">❌ Avoid</h4>
 								<ul class="space-y-2">
 									{#each zone.avoid as item}
 										<li class="flex items-start">
-											<span class="w-2 h-2 bg-red-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
-											<span class="text-gray-700 text-sm">{item}</span>
+											<span class="mt-2 mr-2 h-2 w-2 flex-shrink-0 rounded-full bg-red-500"></span>
+											<span class="text-sm text-gray-700">{item}</span>
 										</li>
 									{/each}
 								</ul>
-								
-								<h4 class="font-semibold text-gray-900 mb-3 mt-6">🎨 Colors</h4>
+
+								<h4 class="mt-6 mb-3 font-semibold text-gray-900">🎨 Colors</h4>
 								<div class="flex flex-wrap gap-2">
 									{#each zone.colors as color}
-										<span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">{color}</span>
+										<span class="rounded bg-gray-100 px-2 py-1 text-xs text-gray-700">{color}</span>
 									{/each}
 								</div>
 							</div>
-							
+
 							<!-- Visual -->
 							<div class="flex items-center justify-center">
-								<div class="w-32 h-32 border-4 border-blue-200 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 flex flex-col items-center justify-center">
-									<div class="text-3xl mb-2">🏢</div>
-									<div class="text-xs text-center text-gray-600 font-medium">{zone.zone.split(' ')[0]}</div>
+								<div
+									class="flex h-32 w-32 flex-col items-center justify-center rounded-xl border-4 border-blue-200 bg-gradient-to-br from-blue-50 to-indigo-50"
+								>
+									<div class="mb-2 text-3xl">🏢</div>
+									<div class="text-center text-xs font-medium text-gray-600">
+										{zone.zone.split(' ')[0]}
+									</div>
 								</div>
 							</div>
 						</div>
@@ -451,45 +466,52 @@
 	</section>
 
 	<!-- Workspace Guidelines -->
-	<section class="py-16 bg-white">
-		<div class="max-w-7xl mx-auto px-8">
-			<div class="text-center mb-12">
-				<h2 class="text-3xl font-bold text-gray-900 mb-4">Workspace Design Guidelines</h2>
+	<section class="bg-white py-16">
+		<div class="mx-auto max-w-7xl px-8">
+			<div class="mb-12 text-center">
+				<h2 class="mb-4 text-3xl font-bold text-gray-900">Workspace Design Guidelines</h2>
 				<p class="text-gray-600">Specific positioning for key areas in your office</p>
 			</div>
-			
-			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 				{#each workspaceGuidelines as workspace}
-					<div class="bg-gray-50 rounded-xl p-6">
-						<div class="flex items-start justify-between mb-4">
+					<div class="rounded-xl bg-gray-50 p-6">
+						<div class="mb-4 flex items-start justify-between">
 							<h3 class="text-lg font-bold text-gray-900">{workspace.area}</h3>
-							<span class="px-2 py-1 rounded-full text-xs font-medium {getImportanceColor(workspace.importance)}">
+							<span
+								class="rounded-full px-2 py-1 text-xs font-medium {getImportanceColor(
+									workspace.importance
+								)}"
+							>
 								{workspace.importance}
 							</span>
 						</div>
-						
+
 						<div class="mb-4">
-							<div class="text-sm font-medium text-blue-700 mb-1">Ideal Position:</div>
+							<div class="mb-1 text-sm font-medium text-blue-700">Ideal Position:</div>
 							<div class="text-sm text-gray-600">{workspace.position}</div>
 						</div>
-						
+
 						<div class="mb-4">
-							<div class="text-sm font-semibold text-gray-700 mb-2">Key Tips:</div>
+							<div class="mb-2 text-sm font-semibold text-gray-700">Key Tips:</div>
 							<ul class="space-y-1">
 								{#each workspace.tips as tip}
-									<li class="text-xs text-gray-600 flex items-start">
-										<span class="w-1 h-1 bg-amber-500 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+									<li class="flex items-start text-xs text-gray-600">
+										<span class="mt-1.5 mr-2 h-1 w-1 flex-shrink-0 rounded-full bg-amber-500"
+										></span>
 										{tip}
 									</li>
 								{/each}
 							</ul>
 						</div>
-						
+
 						<div class="flex items-center justify-between">
 							<div class="text-xs text-gray-500">
 								Colors: {workspace.colors.join(', ')}
 							</div>
-							<div class="text-lg font-bold {getScoreColor(workspace.score)}">{workspace.score}/100</div>
+							<div class="text-lg font-bold {getScoreColor(workspace.score)}">
+								{workspace.score}/100
+							</div>
 						</div>
 					</div>
 				{/each}
@@ -499,30 +521,38 @@
 
 	<!-- Business Types -->
 	<section class="py-16">
-		<div class="max-w-7xl mx-auto px-8">
-			<div class="text-center mb-12">
-				<h2 class="text-3xl font-bold text-gray-900 mb-4">Vastu for Different Business Types</h2>
+		<div class="mx-auto max-w-7xl px-8">
+			<div class="mb-12 text-center">
+				<h2 class="mb-4 text-3xl font-bold text-gray-900">Vastu for Different Business Types</h2>
 				<p class="text-gray-600">Specialized guidance based on your industry and business model</p>
 			</div>
-			
-			<div class="grid md:grid-cols-2 gap-8">
+
+			<div class="grid gap-8 md:grid-cols-2">
 				{#each businessTypes as business}
-					<div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
+					<div class="rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
 						<div class="mb-6">
-							<h3 class="text-xl font-bold text-gray-900 mb-2">{business.type}</h3>
-							<p class="text-gray-600 text-sm mb-4">{business.specialFocus}</p>
-							<div class="text-sm text-amber-700 font-medium">Priority: {business.priority}</div>
+							<h3 class="mb-2 text-xl font-bold text-gray-900">{business.type}</h3>
+							<p class="mb-4 text-sm text-gray-600">{business.specialFocus}</p>
+							<div class="text-sm font-medium text-amber-700">Priority: {business.priority}</div>
 						</div>
-						
+
 						<div>
-							<h4 class="font-semibold text-gray-900 mb-3">Key Recommendations:</h4>
+							<h4 class="mb-3 font-semibold text-gray-900">Key Recommendations:</h4>
 							<ul class="space-y-2">
 								{#each business.keyTips as tip}
 									<li class="flex items-start">
-										<svg class="w-4 h-4 text-blue-500 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-											<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+										<svg
+											class="mt-0.5 mr-2 h-4 w-4 flex-shrink-0 text-blue-500"
+											fill="currentColor"
+											viewBox="0 0 20 20"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+												clip-rule="evenodd"
+											/>
 										</svg>
-										<span class="text-gray-700 text-sm">{tip}</span>
+										<span class="text-sm text-gray-700">{tip}</span>
 									</li>
 								{/each}
 							</ul>
@@ -534,49 +564,57 @@
 	</section>
 
 	<!-- Common Issues -->
-	<section class="py-16 bg-white">
-		<div class="max-w-7xl mx-auto px-8">
-			<div class="text-center mb-12">
-				<h2 class="text-3xl font-bold text-gray-900 mb-4">Common Office Vastu Issues & Solutions</h2>
+	<section class="bg-white py-16">
+		<div class="mx-auto max-w-7xl px-8">
+			<div class="mb-12 text-center">
+				<h2 class="mb-4 text-3xl font-bold text-gray-900">
+					Common Office Vastu Issues & Solutions
+				</h2>
 				<p class="text-gray-600">Identify and resolve frequent workplace problems</p>
 			</div>
-			
+
 			<div class="space-y-4">
 				{#each commonOfficeIssues as issue}
-					<div class="bg-gray-50 rounded-xl p-6">
-						<div class="grid md:grid-cols-4 gap-6 items-start">
+					<div class="rounded-xl bg-gray-50 p-6">
+						<div class="grid items-start gap-6 md:grid-cols-4">
 							<div>
-								<h3 class="font-bold text-gray-900 mb-2">{issue.issue}</h3>
+								<h3 class="mb-2 font-bold text-gray-900">{issue.issue}</h3>
 								<div class="flex items-center space-x-2">
-									<span class="px-2 py-1 rounded-full text-xs font-medium {
-										issue.urgency === 'Critical' ? 'bg-red-100 text-red-800' :
-										issue.urgency === 'High' ? 'bg-orange-100 text-orange-800' :
-										'bg-yellow-100 text-yellow-800'
-									}">
+									<span
+										class="rounded-full px-2 py-1 text-xs font-medium {issue.urgency === 'Critical'
+											? 'bg-red-100 text-red-800'
+											: issue.urgency === 'High'
+												? 'bg-orange-100 text-orange-800'
+												: 'bg-yellow-100 text-yellow-800'}"
+									>
 										{issue.urgency}
 									</span>
-									<span class="px-2 py-1 rounded-full text-xs font-medium {
-										issue.cost === 'Low' ? 'bg-green-100 text-green-800' :
-										issue.cost === 'Medium' ? 'bg-yellow-100 text-yellow-800' :
-										'bg-red-100 text-red-800'
-									}">
+									<span
+										class="rounded-full px-2 py-1 text-xs font-medium {issue.cost === 'Low'
+											? 'bg-green-100 text-green-800'
+											: issue.cost === 'Medium'
+												? 'bg-yellow-100 text-yellow-800'
+												: 'bg-red-100 text-red-800'}"
+									>
 										{issue.cost} Cost
 									</span>
 								</div>
 							</div>
-							
+
 							<div>
-								<h4 class="text-sm font-semibold text-gray-700 mb-2">Problems:</h4>
+								<h4 class="mb-2 text-sm font-semibold text-gray-700">Problems:</h4>
 								<p class="text-sm text-gray-600">{issue.problems}</p>
 							</div>
-							
+
 							<div>
-								<h4 class="text-sm font-semibold text-gray-700 mb-2">Solution:</h4>
+								<h4 class="mb-2 text-sm font-semibold text-gray-700">Solution:</h4>
 								<p class="text-sm text-gray-600">{issue.solution}</p>
 							</div>
-							
+
 							<div class="text-center">
-								<button class="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-200 transition-colors">
+								<button
+									class="rounded-lg bg-blue-100 px-4 py-2 text-sm font-medium text-blue-800 transition-colors hover:bg-blue-200"
+								>
 									Get Detailed Fix
 								</button>
 							</div>
@@ -588,57 +626,95 @@
 	</section>
 
 	<!-- CTA Section -->
-	<section class="py-16 bg-gradient-to-r from-blue-50 to-indigo-50">
-		<div class="max-w-4xl mx-auto px-8 text-center">
-			<div class="bg-white rounded-2xl p-12 shadow-sm border border-blue-200">
-				<h2 class="text-3xl font-bold text-gray-900 mb-6">Transform Your Business with Office Vastu</h2>
-				<p class="text-gray-600 mb-8 max-w-2xl mx-auto">
-					Join thousands of successful businesses who have optimized their workspace 
-					using ancient Vastu principles for modern success.
+	<section class="bg-gradient-to-r from-blue-50 to-indigo-50 py-16">
+		<div class="mx-auto max-w-4xl px-8 text-center">
+			<div class="rounded-2xl border border-blue-200 bg-white p-12 shadow-sm">
+				<h2 class="mb-6 text-3xl font-bold text-gray-900">
+					Transform Your Business with Office Vastu
+				</h2>
+				<p class="mx-auto mb-8 max-w-2xl text-gray-600">
+					Join thousands of successful businesses who have optimized their workspace using ancient
+					Vastu principles for modern success.
 				</p>
-				
-				<div class="grid md:grid-cols-3 gap-6 mb-8">
+
+				<div class="mb-8 grid gap-6 md:grid-cols-3">
 					<div class="text-center">
-						<div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-							<svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+						<div
+							class="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100"
+						>
+							<svg
+								class="h-8 w-8 text-blue-600"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+								/>
 							</svg>
 						</div>
-						<h3 class="font-bold text-gray-900 mb-1">Boost Revenue</h3>
+						<h3 class="mb-1 font-bold text-gray-900">Boost Revenue</h3>
 						<p class="text-sm text-gray-600">Average 60% increase in 6 months</p>
 					</div>
-					
+
 					<div class="text-center">
-						<div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-							<svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+						<div
+							class="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100"
+						>
+							<svg
+								class="h-8 w-8 text-blue-600"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+								/>
 							</svg>
 						</div>
-						<h3 class="font-bold text-gray-900 mb-1">Improve Team Morale</h3>
+						<h3 class="mb-1 font-bold text-gray-900">Improve Team Morale</h3>
 						<p class="text-sm text-gray-600">Happier, more productive employees</p>
 					</div>
-					
+
 					<div class="text-center">
-						<div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-							<svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+						<div
+							class="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100"
+						>
+							<svg
+								class="h-8 w-8 text-blue-600"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+								/>
 							</svg>
 						</div>
-						<h3 class="font-bold text-gray-900 mb-1">Reduce Conflicts</h3>
+						<h3 class="mb-1 font-bold text-gray-900">Reduce Conflicts</h3>
 						<p class="text-sm text-gray-600">Better workplace harmony</p>
 					</div>
 				</div>
-				
-				<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-					<button 
+
+				<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+					<button
 						on:click={() => goto('/scan')}
-						class="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+						class="rounded-xl bg-blue-600 px-8 py-4 font-semibold text-white transition-colors hover:bg-blue-700"
 					>
 						Get Office Analysis
 					</button>
-					<button 
+					<button
 						on:click={() => goto('/consultation')}
-						class="border border-gray-300 bg-white text-gray-700 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
+						class="rounded-xl border border-gray-300 bg-white px-8 py-4 font-semibold text-gray-700 transition-colors hover:bg-gray-50"
 					>
 						Book Business Consultation
 					</button>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	
+
 	const roomGuidelines = [
 		{
 			room: 'Main Entrance',
@@ -193,23 +193,27 @@
 <!-- Home Vastu Comprehensive Guide -->
 <div class="min-h-screen bg-gray-50">
 	<!-- Header -->
-	<header class="bg-white border-b border-gray-200">
-		<div class="max-w-7xl mx-auto px-8 py-4">
+	<header class="border-b border-gray-200 bg-white">
+		<div class="mx-auto max-w-7xl px-8 py-4">
 			<div class="flex items-center justify-between">
 				<div class="flex items-center space-x-3">
-					<div class="w-10 h-10 bg-gradient-to-br from-amber-600 to-orange-700 rounded flex items-center justify-center">
-						<span class="text-white font-bold text-sm">V</span>
+					<div
+						class="flex h-10 w-10 items-center justify-center rounded bg-gradient-to-br from-amber-600 to-orange-700"
+					>
+						<span class="text-sm font-bold text-white">V</span>
 					</div>
 					<div>
-						<div class="font-bold text-gray-900 text-lg tracking-tight">VASTUJI</div>
-						<div class="text-xs text-gray-500 uppercase tracking-wide">The Sacred Science of Space</div>
+						<div class="text-lg font-bold tracking-tight text-gray-900">VASTUJI</div>
+						<div class="text-xs tracking-wide text-gray-500 uppercase">
+							The Sacred Science of Space
+						</div>
 					</div>
 				</div>
-				
-				<nav class="hidden md:flex items-center space-x-8 text-sm text-gray-600">
+
+				<nav class="hidden items-center space-x-8 text-sm text-gray-600 md:flex">
 					<a href="/" class="hover:text-gray-900">Home</a>
 					<a href="/knowledge" class="hover:text-gray-900">Knowledge</a>
-					<span class="text-amber-600 font-medium">Home Vastu</span>
+					<span class="font-medium text-amber-600">Home Vastu</span>
 					<a href="/scan" class="hover:text-gray-900">Analysis</a>
 					<a href="/consultation" class="hover:text-gray-900">Consultation</a>
 				</nav>
@@ -219,26 +223,24 @@
 
 	<!-- Hero Section -->
 	<section class="bg-gradient-to-br from-amber-50 to-orange-50 py-16">
-		<div class="max-w-7xl mx-auto px-8">
-			<div class="text-center mb-12">
-				<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-					Complete Home Vastu Guide
-				</h1>
-				<p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-					Transform your home into a harmonious sanctuary with traditional Vastu principles. 
+		<div class="mx-auto max-w-7xl px-8">
+			<div class="mb-12 text-center">
+				<h1 class="mb-6 text-4xl font-bold text-gray-900 md:text-5xl">Complete Home Vastu Guide</h1>
+				<p class="mx-auto mb-8 max-w-3xl text-xl text-gray-600">
+					Transform your home into a harmonious sanctuary with traditional Vastu principles.
 					Room-by-room guidelines for optimal energy flow and family prosperity.
 				</p>
-				
-				<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-					<button 
+
+				<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+					<button
 						on:click={() => goto('/scan')}
-						class="bg-amber-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-amber-700 transition-colors"
+						class="rounded-xl bg-amber-600 px-8 py-4 font-semibold text-white transition-colors hover:bg-amber-700"
 					>
 						Analyze My Home
 					</button>
-					<button 
+					<button
 						on:click={() => goto('/consultation')}
-						class="border border-gray-300 bg-white text-gray-700 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
+						class="rounded-xl border border-gray-300 bg-white px-8 py-4 font-semibold text-gray-700 transition-colors hover:bg-gray-50"
 					>
 						Expert Consultation
 					</button>
@@ -249,75 +251,96 @@
 
 	<!-- Room Guidelines Section -->
 	<section class="py-16">
-		<div class="max-w-7xl mx-auto px-8">
-			<div class="text-center mb-12">
-				<h2 class="text-3xl font-bold text-gray-900 mb-4">Room-by-Room Vastu Guidelines</h2>
+		<div class="mx-auto max-w-7xl px-8">
+			<div class="mb-12 text-center">
+				<h2 class="mb-4 text-3xl font-bold text-gray-900">Room-by-Room Vastu Guidelines</h2>
 				<p class="text-gray-600">Detailed directions for each area of your home</p>
 			</div>
-			
+
 			<div class="space-y-8">
 				{#each roomGuidelines as room}
-					<div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+					<div class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
 						<div class="p-8">
-							<div class="flex items-start justify-between mb-6">
+							<div class="mb-6 flex items-start justify-between">
 								<div>
-									<h3 class="text-2xl font-bold text-gray-900 mb-2">{room.room}</h3>
-									<div class="flex items-center space-x-4 mb-3">
-										<span class="text-amber-700 font-medium">Ideal Zone: {room.zone}</span>
-										<span class="px-2 py-1 rounded-full text-xs font-medium {
-											room.importance === 'critical' ? 'bg-red-100 text-red-800' :
-											room.importance === 'high' ? 'bg-orange-100 text-orange-800' :
-											'bg-yellow-100 text-yellow-800'
-										}">
+									<h3 class="mb-2 text-2xl font-bold text-gray-900">{room.room}</h3>
+									<div class="mb-3 flex items-center space-x-4">
+										<span class="font-medium text-amber-700">Ideal Zone: {room.zone}</span>
+										<span
+											class="rounded-full px-2 py-1 text-xs font-medium {room.importance ===
+											'critical'
+												? 'bg-red-100 text-red-800'
+												: room.importance === 'high'
+													? 'bg-orange-100 text-orange-800'
+													: 'bg-yellow-100 text-yellow-800'}"
+										>
 											{room.importance} importance
 										</span>
 									</div>
 								</div>
 								<div class="text-right">
-									<div class="text-3xl font-bold {
-										room.vastu_score >= 85 ? 'text-green-600' :
-										room.vastu_score >= 70 ? 'text-yellow-600' : 'text-red-600'
-									}">{room.vastu_score}/100</div>
+									<div
+										class="text-3xl font-bold {room.vastu_score >= 85
+											? 'text-green-600'
+											: room.vastu_score >= 70
+												? 'text-yellow-600'
+												: 'text-red-600'}"
+									>
+										{room.vastu_score}/100
+									</div>
 									<div class="text-sm text-gray-500">Vastu Score</div>
 								</div>
 							</div>
-							
-							<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+							<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
 								<!-- Guidelines -->
 								<div class="lg:col-span-2">
-									<h4 class="font-semibold text-gray-900 mb-3">Key Guidelines</h4>
+									<h4 class="mb-3 font-semibold text-gray-900">Key Guidelines</h4>
 									<ul class="space-y-2">
 										{#each room.guidelines as guideline}
 											<li class="flex items-start">
-												<svg class="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-													<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+												<svg
+													class="mt-0.5 mr-2 h-4 w-4 flex-shrink-0 text-green-500"
+													fill="currentColor"
+													viewBox="0 0 20 20"
+												>
+													<path
+														fill-rule="evenodd"
+														d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+														clip-rule="evenodd"
+													/>
 												</svg>
-												<span class="text-gray-700 text-sm">{guideline}</span>
+												<span class="text-sm text-gray-700">{guideline}</span>
 											</li>
 										{/each}
 									</ul>
 								</div>
-								
+
 								<!-- Colors & Direction -->
 								<div>
-									<h4 class="font-semibold text-gray-900 mb-3">Ideal Colors</h4>
-									<div class="flex flex-wrap gap-2 mb-4">
+									<h4 class="mb-3 font-semibold text-gray-900">Ideal Colors</h4>
+									<div class="mb-4 flex flex-wrap gap-2">
 										{#each room.colors as color}
-											<span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">{color}</span>
+											<span class="rounded bg-gray-100 px-2 py-1 text-xs text-gray-700"
+												>{color}</span
+											>
 										{/each}
 									</div>
-									
-									<h4 class="font-semibold text-gray-900 mb-2">Direction</h4>
+
+									<h4 class="mb-2 font-semibold text-gray-900">Direction</h4>
 									<p class="text-sm text-gray-600">{room.direction}</p>
 								</div>
-								
+
 								<!-- Visual Indicator -->
 								<div class="flex items-center justify-center">
-									<div class="w-24 h-24 border-4 border-gray-200 rounded-lg flex items-center justify-center bg-gradient-to-br {
-										room.importance === 'critical' ? 'from-red-50 to-red-100 border-red-200' :
-										room.importance === 'high' ? 'from-orange-50 to-orange-100 border-orange-200' :
-										'from-yellow-50 to-yellow-100 border-yellow-200'
-									}">
+									<div
+										class="flex h-24 w-24 items-center justify-center rounded-lg border-4 border-gray-200 bg-gradient-to-br {room.importance ===
+										'critical'
+											? 'border-red-200 from-red-50 to-red-100'
+											: room.importance === 'high'
+												? 'border-orange-200 from-orange-50 to-orange-100'
+												: 'border-yellow-200 from-yellow-50 to-yellow-100'}"
+									>
 										<div class="text-2xl">🏠</div>
 									</div>
 								</div>
@@ -330,35 +353,37 @@
 	</section>
 
 	<!-- Common Issues Section -->
-	<section class="py-16 bg-white">
-		<div class="max-w-7xl mx-auto px-8">
-			<div class="text-center mb-12">
-				<h2 class="text-3xl font-bold text-gray-900 mb-4">Common Home Vastu Issues</h2>
+	<section class="bg-white py-16">
+		<div class="mx-auto max-w-7xl px-8">
+			<div class="mb-12 text-center">
+				<h2 class="mb-4 text-3xl font-bold text-gray-900">Common Home Vastu Issues</h2>
 				<p class="text-gray-600">Identify and resolve typical problems in modern homes</p>
 			</div>
-			
-			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 				{#each commonIssues as issue}
-					<div class="bg-gray-50 rounded-xl p-6">
-						<div class="flex items-start justify-between mb-4">
+					<div class="rounded-xl bg-gray-50 p-6">
+						<div class="mb-4 flex items-start justify-between">
 							<h3 class="text-lg font-bold text-gray-900">{issue.issue}</h3>
-							<span class="px-2 py-1 rounded-full text-xs font-medium {
-								issue.urgency === 'critical' ? 'bg-red-100 text-red-800' :
-								issue.urgency === 'high' ? 'bg-orange-100 text-orange-800' :
-								'bg-yellow-100 text-yellow-800'
-							}">
+							<span
+								class="rounded-full px-2 py-1 text-xs font-medium {issue.urgency === 'critical'
+									? 'bg-red-100 text-red-800'
+									: issue.urgency === 'high'
+										? 'bg-orange-100 text-orange-800'
+										: 'bg-yellow-100 text-yellow-800'}"
+							>
 								{issue.urgency}
 							</span>
 						</div>
-						
+
 						<div class="space-y-3">
 							<div>
-								<h4 class="text-sm font-semibold text-gray-700 mb-1">Impact:</h4>
+								<h4 class="mb-1 text-sm font-semibold text-gray-700">Impact:</h4>
 								<p class="text-sm text-gray-600">{issue.impact}</p>
 							</div>
-							
+
 							<div>
-								<h4 class="text-sm font-semibold text-gray-700 mb-1">Solution:</h4>
+								<h4 class="mb-1 text-sm font-semibold text-gray-700">Solution:</h4>
 								<p class="text-sm text-gray-600">{issue.solution}</p>
 							</div>
 						</div>
@@ -370,23 +395,31 @@
 
 	<!-- Seasonal Tips -->
 	<section class="py-16">
-		<div class="max-w-7xl mx-auto px-8">
-			<div class="text-center mb-12">
-				<h2 class="text-3xl font-bold text-gray-900 mb-4">Seasonal Vastu Tips</h2>
+		<div class="mx-auto max-w-7xl px-8">
+			<div class="mb-12 text-center">
+				<h2 class="mb-4 text-3xl font-bold text-gray-900">Seasonal Vastu Tips</h2>
 				<p class="text-gray-600">Align your home with natural seasonal energies</p>
 			</div>
-			
-			<div class="grid md:grid-cols-3 gap-8">
+
+			<div class="grid gap-8 md:grid-cols-3">
 				{#each seasonalTips as season}
-					<div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-						<h3 class="text-xl font-bold text-gray-900 mb-4">{season.season}</h3>
+					<div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+						<h3 class="mb-4 text-xl font-bold text-gray-900">{season.season}</h3>
 						<ul class="space-y-2">
 							{#each season.tips as tip}
 								<li class="flex items-start">
-									<svg class="w-4 h-4 text-amber-500 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 1.414L10.586 9.5 9.293 10.793a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd"/>
+									<svg
+										class="mt-0.5 mr-2 h-4 w-4 flex-shrink-0 text-amber-500"
+										fill="currentColor"
+										viewBox="0 0 20 20"
+									>
+										<path
+											fill-rule="evenodd"
+											d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 1.414L10.586 9.5 9.293 10.793a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414z"
+											clip-rule="evenodd"
+										/>
 									</svg>
-									<span class="text-gray-700 text-sm">{tip}</span>
+									<span class="text-sm text-gray-700">{tip}</span>
 								</li>
 							{/each}
 						</ul>
@@ -397,57 +430,93 @@
 	</section>
 
 	<!-- Quick Assessment -->
-	<section class="py-16 bg-gradient-to-r from-amber-50 to-orange-50">
-		<div class="max-w-4xl mx-auto px-8 text-center">
-			<div class="bg-white rounded-2xl p-12 shadow-sm border border-amber-200">
-				<h2 class="text-3xl font-bold text-gray-900 mb-6">Get Your Home Vastu Assessment</h2>
-				<p class="text-gray-600 mb-8 max-w-2xl mx-auto">
-					Our experts can analyze your home layout and provide personalized recommendations 
-					based on traditional Vastu principles and modern living needs.
+	<section class="bg-gradient-to-r from-amber-50 to-orange-50 py-16">
+		<div class="mx-auto max-w-4xl px-8 text-center">
+			<div class="rounded-2xl border border-amber-200 bg-white p-12 shadow-sm">
+				<h2 class="mb-6 text-3xl font-bold text-gray-900">Get Your Home Vastu Assessment</h2>
+				<p class="mx-auto mb-8 max-w-2xl text-gray-600">
+					Our experts can analyze your home layout and provide personalized recommendations based on
+					traditional Vastu principles and modern living needs.
 				</p>
-				
-				<div class="grid md:grid-cols-3 gap-6 mb-8">
+
+				<div class="mb-8 grid gap-6 md:grid-cols-3">
 					<div class="text-center">
-						<div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
-							<svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+						<div
+							class="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100"
+						>
+							<svg
+								class="h-8 w-8 text-amber-600"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+								/>
 							</svg>
 						</div>
-						<h3 class="font-bold text-gray-900 mb-1">Instant Analysis</h3>
+						<h3 class="mb-1 font-bold text-gray-900">Instant Analysis</h3>
 						<p class="text-sm text-gray-600">AI-powered scanning in minutes</p>
 					</div>
-					
+
 					<div class="text-center">
-						<div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
-							<svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+						<div
+							class="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100"
+						>
+							<svg
+								class="h-8 w-8 text-amber-600"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+								/>
 							</svg>
 						</div>
-						<h3 class="font-bold text-gray-900 mb-1">Expert Guidance</h3>
+						<h3 class="mb-1 font-bold text-gray-900">Expert Guidance</h3>
 						<p class="text-sm text-gray-600">Certified Vastu consultants</p>
 					</div>
-					
+
 					<div class="text-center">
-						<div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
-							<svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+						<div
+							class="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100"
+						>
+							<svg
+								class="h-8 w-8 text-amber-600"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M13 10V3L4 14h7v7l9-11h-7z"
+								/>
 							</svg>
 						</div>
-						<h3 class="font-bold text-gray-900 mb-1">Practical Solutions</h3>
+						<h3 class="mb-1 font-bold text-gray-900">Practical Solutions</h3>
 						<p class="text-sm text-gray-600">Actionable remedies and tips</p>
 					</div>
 				</div>
-				
-				<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-					<button 
+
+				<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+					<button
 						on:click={() => goto('/scan')}
-						class="bg-amber-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-amber-700 transition-colors"
+						class="rounded-xl bg-amber-600 px-8 py-4 font-semibold text-white transition-colors hover:bg-amber-700"
 					>
 						Start Free Analysis
 					</button>
-					<button 
+					<button
 						on:click={() => goto('/consultation')}
-						class="border border-gray-300 bg-white text-gray-700 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
+						class="rounded-xl border border-gray-300 bg-white px-8 py-4 font-semibold text-gray-700 transition-colors hover:bg-gray-50"
 					>
 						Book Expert Consultation
 					</button>

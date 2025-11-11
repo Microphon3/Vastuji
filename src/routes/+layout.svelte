@@ -5,12 +5,12 @@
 	import { onMount } from 'svelte';
 
 	let { children } = $props();
-	
+
 	let isAuthenticated = $state(false);
 	let showPasswordModal = $state(true);
 	let password = $state('');
 	let errorMessage = $state('');
-	
+
 	onMount(() => {
 		// Check if already authenticated in session
 		if (browser) {
@@ -21,7 +21,7 @@
 			}
 		}
 	});
-	
+
 	function handlePasswordSubmit() {
 		if (password === 'yogesh') {
 			isAuthenticated = true;
@@ -35,7 +35,7 @@
 			password = '';
 		}
 	}
-	
+
 	function handleKeyPress(event: KeyboardEvent) {
 		if (event.key === 'Enter') {
 			handlePasswordSubmit();
@@ -49,45 +49,47 @@
 
 {#if !isAuthenticated && showPasswordModal}
 	<!-- Password Protection Modal -->
-	<div class="fixed inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-50 flex items-center justify-center">
-		<div class="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full mx-4">
-			<div class="text-center mb-6">
+	<div
+		class="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center bg-gray-900 backdrop-blur-sm"
+	>
+		<div class="mx-4 w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl">
+			<div class="mb-6 text-center">
 				<!-- Logo -->
-				<div class="w-20 h-20 bg-gradient-to-br from-amber-600 to-orange-700 rounded-lg flex items-center justify-center mx-auto mb-4">
-					<span class="text-white font-bold text-3xl">V</span>
+				<div
+					class="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-lg bg-gradient-to-br from-amber-600 to-orange-700"
+				>
+					<span class="text-3xl font-bold text-white">V</span>
 				</div>
-				
-				<h1 class="text-2xl font-bold text-gray-900 mb-2">VASTUJI</h1>
-				<p class="text-sm text-gray-500 uppercase tracking-wide">The Sacred Science of Space</p>
+
+				<h1 class="mb-2 text-2xl font-bold text-gray-900">VASTUJI</h1>
+				<p class="text-sm tracking-wide text-gray-500 uppercase">The Sacred Science of Space</p>
 			</div>
-			
+
 			<div class="mb-6">
-				<p class="text-gray-600 text-center mb-4">Please enter the password to continue</p>
-				
-				<input 
+				<p class="mb-4 text-center text-gray-600">Please enter the password to continue</p>
+
+				<input
 					type="password"
 					bind:value={password}
 					onkeypress={handleKeyPress}
 					placeholder="Enter password"
-					class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors"
+					class="w-full rounded-lg border border-gray-200 px-4 py-3 transition-colors focus:border-amber-500 focus:ring-2 focus:ring-amber-500"
 					autofocus
 				/>
-				
+
 				{#if errorMessage}
-					<p class="text-red-600 text-sm mt-2 text-center">{errorMessage}</p>
+					<p class="mt-2 text-center text-sm text-red-600">{errorMessage}</p>
 				{/if}
 			</div>
-			
-			<button 
+
+			<button
 				onclick={handlePasswordSubmit}
-				class="w-full bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"
+				class="w-full rounded-lg bg-amber-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-amber-700"
 			>
 				Enter Site
 			</button>
-			
-			<p class="text-xs text-gray-400 text-center mt-4">
-				Protected access • Authorized users only
-			</p>
+
+			<p class="mt-4 text-center text-xs text-gray-400">Protected access • Authorized users only</p>
 		</div>
 	</div>
 {:else}
