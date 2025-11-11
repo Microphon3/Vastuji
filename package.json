@@ -14,7 +14,11 @@
 		"lint": "prettier --check . && eslint .",
 		"test:e2e": "playwright test",
 		"test": "npm run test:e2e && npm run test:unit -- --run",
-		"test:unit": "vitest"
+		"test:unit": "vitest",
+		"db:init": "./scripts/init-db.sh",
+		"db:start": "docker compose up -d",
+		"db:stop": "docker compose down",
+		"db:reset": "docker compose down -v && docker compose up -d && npm run db:init"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
@@ -45,6 +49,6 @@
 		"vitest-browser-svelte": "^0.1.0"
 	},
 	"dependencies": {
-		"@supabase/supabase-js": "^2.81.0"
+		"mysql2": "^3.15.3"
 	}
 }

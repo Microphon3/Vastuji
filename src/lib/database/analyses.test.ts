@@ -1,6 +1,12 @@
-import { describe, it, expect, beforeEach } from 'vitest';
-import { supabase } from '$lib/supabase';
+import { describe, it, expect, beforeAll, afterAll } from 'vitest';
+import {
+	createAnalysis,
+	getAnalysisById,
+	updateAnalysis,
+	deleteAnalysis
+} from './analyses';
 import type { AnalysisInsert } from '$lib/types/database';
+import { closePool } from '$lib/db';
 
 describe('Analyses Database Operations', () => {
 	let testAnalysisId: string;
@@ -13,37 +19,48 @@ describe('Analyses Database Operations', () => {
 		status: 'uploading'
 	};
 
+	afterAll(async () => {
+		// Clean up and close database connection
+		if (testAnalysisId) {
+			await deleteAnalysis(testAnalysisId);
+		}
+		await closePool();
+	});
+
 	it('should create a new analysis', async () => {
-		const { data, error } = await supabase.from('analyses').insert(mockAnalysis).select().single();
+		const analysis = await createAnalysis(mockAnalysis);
 
-		expect(error).toBeNull();
-		expect(data).toBeDefined();
-		expect(data?.propertyType).toBe('home');
-		expect(data?.compassHeading).toBe(45.5);
+		expect(analysis).toBeDefined();
+		expect(analysis.id).toBeDefined();
+		expect(analysis.propertyType).toBe('home');
+		expect(analysis.compassHeading).toBe(45.5);
+		expect(analysis.selectedGoals).toEqual(['wealth', 'health']);
 
-		testAnalysisId = data!.id;
+		testAnalysisId = analysis.id;
 	});
 
 	it('should retrieve analysis by id', async () => {
-		const { data, error } = await supabase
-			.from('analyses')
-			.select('*')
-			.eq('id', testAnalysisId)
-			.single();
+		const analysis = await getAnalysisById(testAnalysisId);
 
-		expect(error).toBeNull();
-		expect(data?.id).toBe(testAnalysisId);
+		expect(analysis).toBeDefined();
+		expect(analysis?.id).toBe(testAnalysisId);
+		expect(analysis?.propertyType).toBe('home');
 	});
 
 	it('should update analysis status', async () => {
-		const { data, error } = await supabase
-			.from('analyses')
-			.update({ status: 'processing' })
-			.eq('id', testAnalysisId)
-			.select()
-			.single();
+		const updated = await updateAnalysis(testAnalysisId, { status: 'processing' });
 
-		expect(error).toBeNull();
-		expect(data?.status).toBe('processing');
+		expect(updated).toBeDefined();
+		expect(updated?.status).toBe('processing');
+	});
+
+	it('should delete analysis', async () => {
+		const result = await deleteAnalysis(testAnalysisId);
+		expect(result).toBe(true);
+
+		const deleted = await getAnalysisById(testAnalysisId);
+		expect(deleted).toBeNull();
+
+		testAnalysisId = ''; // Prevent double deletion in afterAll
 	});
 });

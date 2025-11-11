@@ -1,8 +1,10 @@
-import { supabase } from '$lib/supabase';
-import { PUBLIC_SUPABASE_STORAGE_BUCKET } from '$env/static/public';
+import { writeFile, unlink, mkdir } from 'fs/promises';
+import { existsSync } from 'fs';
+import { join } from 'path';
 
 const MAX_FILE_SIZE = 100 * 1024 * 1024; // 100MB
 const ALLOWED_VIDEO_TYPES = ['video/mp4', 'video/quicktime', 'video/x-msvideo', 'video/webm'];
+const UPLOAD_DIR = 'uploads/videos';
 
 export interface UploadResult {
 	success: boolean;
@@ -12,7 +14,7 @@ export interface UploadResult {
 }
 
 /**
- * Upload video file to Supabase Storage
+ * Upload video file to local file system
  * @param file - Video file from user upload
  * @param analysisId - UUID of the analysis record
  * @returns Upload result with URL or error
@@ -37,32 +39,31 @@ export async function uploadVideo(file: File, analysisId: string): Promise<Uploa
 	// Generate unique file path
 	const timestamp = Date.now();
 	const fileExt = file.name.split('.').pop() || 'mp4';
-	const filePath = `videos/${analysisId}/${timestamp}.${fileExt}`;
+	const fileName = `${timestamp}.${fileExt}`;
+	const analysisDir = join(UPLOAD_DIR, analysisId);
+	const relativePath = join(analysisDir, fileName);
+	const absolutePath = join(process.cwd(), relativePath);
 
 	try {
-		// Upload to Supabase Storage
-		const { data, error } = await supabase.storage
-			.from(PUBLIC_SUPABASE_STORAGE_BUCKET)
-			.upload(filePath, file, {
-				cacheControl: '3600',
-				upsert: false
-			});
-
-		if (error) {
-			console.error('Upload error:', error);
-			return {
-				success: false,
-				error: `Upload failed: ${error.message}`
-			};
+		// Ensure directory exists
+		if (!existsSync(join(process.cwd(), analysisDir))) {
+			await mkdir(join(process.cwd(), analysisDir), { recursive: true });
 		}
 
-		// Generate public URL
-		const url = generateVideoUrl(data.path);
+		// Convert File to Buffer
+		const arrayBuffer = await file.arrayBuffer();
+		const buffer = Buffer.from(arrayBuffer);
+
+		// Write file to disk
+		await writeFile(absolutePath, buffer);
+
+		// Generate public URL (relative path for serving)
+		const url = `/${relativePath}`;
 
 		return {
 			success: true,
 			url,
-			path: data.path
+			path: relativePath
 		};
 	} catch (err) {
 		console.error('Unexpected upload error:', err);
@@ -79,9 +80,9 @@ export async function uploadVideo(file: File, analysisId: string): Promise<Uploa
  * @returns Public URL
  */
 export function generateVideoUrl(path: string): string {
-	const { data } = supabase.storage.from(PUBLIC_SUPABASE_STORAGE_BUCKET).getPublicUrl(path);
-
-	return data.publicUrl;
+	// Return the path as-is for local file serving
+	// In production, this would be served by the web server
+	return `/${path}`;
 }
 
 /**
@@ -90,17 +91,11 @@ export function generateVideoUrl(path: string): string {
  */
 export async function deleteVideo(path: string): Promise<{ success: boolean; error?: string }> {
 	try {
-		const { error } = await supabase.storage.from(PUBLIC_SUPABASE_STORAGE_BUCKET).remove([path]);
-
-		if (error) {
-			return {
-				success: false,
-				error: error.message
-			};
-		}
-
+		const absolutePath = join(process.cwd(), path);
+		await unlink(absolutePath);
 		return { success: true };
 	} catch (err) {
+		console.error('Delete error:', err);
 		return {
 			success: false,
 			error: 'Failed to delete video'
