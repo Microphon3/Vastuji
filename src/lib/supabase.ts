@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY } from '$env/static/public';
+import type { Analysis, AnalysisInsert, AnalysisUpdate } from '$lib/types/database';
 
 if (!PUBLIC_SUPABASE_URL || !PUBLIC_SUPABASE_ANON_KEY) {
   throw new Error('Missing Supabase environment variables');
@@ -12,43 +13,12 @@ export type Database = {
     Tables: {
       analyses: {
         Row: Analysis;
-        Insert: Omit<Analysis, 'id' | 'createdAt' | 'updatedAt'>;
-        Update: Partial<Analysis>;
-      };
-      bookings: {
-        Row: Booking;
-        Insert: Omit<Booking, 'id' | 'createdAt' | 'updatedAt'>;
-        Update: Partial<Booking>;
+        Insert: AnalysisInsert;
+        Update: AnalysisUpdate;
       };
     };
   };
 };
 
-// Type definitions will be added in next task
-export interface Analysis {
-  id: string;
-  userId?: string;
-  createdAt: string;
-  updatedAt: string;
-  propertyType: 'home' | 'office' | 'shop' | 'factory' | 'plot';
-  selectedGoals?: string[];
-  videoUrl: string;
-  compassHeading: number;
-  status: 'uploading' | 'processing' | 'complete' | 'failed';
-}
-
-export interface Booking {
-  id: string;
-  analysisId: string;
-  userId?: string;
-  createdAt: string;
-  updatedAt: string;
-  name: string;
-  email: string;
-  phone: string;
-  propertyAddress?: string;
-  scheduledTime: string;
-  timezone: string;
-  paymentStatus: 'pending' | 'completed' | 'failed';
-  amount: number;
-}
+// Re-export types for convenience
+export type { Analysis, AnalysisInsert, AnalysisUpdate } from '$lib/types/database';
