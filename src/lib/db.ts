@@ -85,7 +85,10 @@ export function objectToSnakeCase(obj: any): any {
 	if (!obj) return obj;
 	const result: any = {};
 	for (const key in obj) {
-		result[toSnakeCase(key)] = obj[key];
+		// Skip undefined values to avoid SQL errors
+		if (obj[key] !== undefined) {
+			result[toSnakeCase(key)] = obj[key];
+		}
 	}
 	return result;
 }

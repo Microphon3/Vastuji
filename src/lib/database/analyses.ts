@@ -7,12 +7,9 @@ import type { ResultSetHeader } from 'mysql2';
  */
 export async function createAnalysis(data: AnalysisInsert): Promise<Analysis> {
 	const id = generateId();
-	const now = new Date().toISOString();
 
 	const analysisData = {
 		id,
-		created_at: now,
-		updated_at: now,
 		...objectToSnakeCase(data)
 	};
 
@@ -105,7 +102,7 @@ export async function getAnalysesByUserId(userId: string): Promise<Analysis[]> {
  */
 export async function deleteAnalysis(id: string): Promise<boolean> {
 	const result = await query<ResultSetHeader>('DELETE FROM analyses WHERE id = ?', [id]);
-	return result[0]?.affectedRows > 0;
+	return (result as any).affectedRows > 0;
 }
 
 /**
@@ -129,6 +126,11 @@ function parseAnalysisRow(row: any): Analysis {
 	}
 	if (typeof analysis.detailedReport === 'string') {
 		analysis.detailedReport = JSON.parse(analysis.detailedReport);
+	}
+
+	// Convert DECIMAL fields to numbers
+	if (typeof analysis.compassHeading === 'string') {
+		analysis.compassHeading = parseFloat(analysis.compassHeading);
 	}
 
 	return analysis;
