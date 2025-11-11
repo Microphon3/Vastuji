@@ -12,12 +12,12 @@ export type Database = {
     Tables: {
       analyses: {
         Row: Analysis;
-        Insert: Omit<Analysis, 'id' | 'createdAt'>;
+        Insert: Omit<Analysis, 'id' | 'createdAt' | 'updatedAt'>;
         Update: Partial<Analysis>;
       };
       bookings: {
         Row: Booking;
-        Insert: Omit<Booking, 'id'>;
+        Insert: Omit<Booking, 'id' | 'createdAt' | 'updatedAt'>;
         Update: Partial<Booking>;
       };
     };
@@ -29,6 +29,7 @@ export interface Analysis {
   id: string;
   userId?: string;
   createdAt: string;
+  updatedAt: string;
   propertyType: 'home' | 'office' | 'shop' | 'factory' | 'plot';
   selectedGoals?: string[];
   videoUrl: string;
@@ -40,6 +41,8 @@ export interface Booking {
   id: string;
   analysisId: string;
   userId?: string;
+  createdAt: string;
+  updatedAt: string;
   name: string;
   email: string;
   phone: string;
